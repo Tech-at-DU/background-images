@@ -133,8 +133,11 @@ In this radial gradient, colors spread outward in the same pattern as the linear
 
 CSS offers several ways to define color values:
 
+- **[Named Colors](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color)** `tomato`
 - **[Hexadecimal](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Hex_colors)** – `#FF5733`
 - **[RGB/RGBA](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#RGB_colors)** – `rgb(255, 87, 51)` or `rgba(255, 87, 51, 0.5)` (with opacity)
 - **[HSL/HSLA](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#HSL_colors)** – `hsl(10, 100%, 50%)` or `hsla(10, 100%, 50%, 0.5)`
 
 These formats provide flexibility, with RGBA and HSLA allowing transparency.
+
+You can use these color formats anywhere a color is expected in CSS. 
