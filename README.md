@@ -141,3 +141,7 @@ CSS offers several ways to define color values:
 These formats provide flexibility, with RGBA and HSLA allowing transparency.
 
 You can use these color formats anywhere a color is expected in CSS. 
+
+## CSS is Awesome
+- https://css-tricks.com/css-is-awesome/
+- https://blog.jim-nielsen.com/2021/css-is-in-fact-awesome/
