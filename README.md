@@ -1,94 +1,140 @@
-# background-images
- 
-These examples illustrate how to work with background images in CSS. 
+# Background Images in CSS
 
-## Background property 
-The background property covers the following areas: 
-- background color - sets the 
-- background image 
-- background position
-- background attachment 
-- background size
+This guide explains how to use background images in CSS.
 
-All of these properties accept multiple values. This allows you to layer images and gradients, and set the size, postition, and attachement for each. 
+## Background Property
 
-Use `background` like this: 
+The [`background`](https://developer.mozilla.org/en-US/docs/Web/CSS/background) property in CSS includes:
 
-```CSS
-background-image:
-  background-image: 
+- **[Background color](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color)** – sets the background color.
+- **[Background image](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image)** – sets one or more background images.
+- **[Background position](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position)** – defines image positioning.
+- **[Background attachment](https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment)** – controls image scrolling.
+- **[Background size](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size)** – sets image dimensions.
+
+Each property accepts multiple values, allowing layered images and gradients with customized sizes, positions, and attachments.
+
+**Example:**
+
+```css
+background-image: 
     url(images/picture-0.png),
     url(images/picture-1.png),
     url(images/picture-2.png),
     url(images/picture-3.png),
     linear-gradient(red, blue),
-    url(images/picture-4.png)
+    url(images/picture-4.png);
 ```
 
-Here we've layered 6 background "images", notice there is a gradient sandwiched between picture-3 and picture-4. 
+In this example, six background layers are defined, with a gradient positioned between `picture-3` and `picture-4`. Images are layered from top (`picture-0`) to bottom (`picture-4`).
 
-Picture-0 will be on top (in front) and picture-4 will be on the bottom (in back).
+## Background Size
 
-https://developer.mozilla.org/en-US/docs/Web/CSS/background-image
+[`background-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size) controls the size of each background layer, including gradients. Sizes are set in the order of the images:
 
-Use `background-size` to set the size of an image. This also applies to gradients! Fo example: 
-
-```CSS
+```css
 background-size: 400px, 300px, 200px, 100px, auto, 50px;
 ```
 
-Each of the values is seprated by a comma, and are applied to each of the images in the same order! picture-0 is 400px, picture-1 is 300px, etc. Notice the gradient is set to `auto` this makes the gradient use its default or original size. 
+Here, `picture-0` is set to 400px, `picture-1` to 300px, and so on. The gradient uses `auto`, its default size.
 
-https://developer.mozilla.org/en-US/docs/Web/CSS/background-size
+## Background Repeat
 
-`background-repeat` works the same. Values can be:
-- repeat
-- no-repeat
-- repeat-x
-- repeat-y
-- space
-- round
-- or a combination of these. 
+The [`background-repeat`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat) property specifies how images are repeated. Possible values include:
 
-For example: 
+- `repeat` – repeats the image in both directions.
+- `no-repeat` – displays the image once without repetition.
+- `repeat-x` – repeats the image horizontally.
+- `repeat-y` – repeats the image vertically.
+- `space` – repeats the image to fill the area with even spacing between copies.
+- `round` – repeats the image with resizing to fill the area without gaps.
 
-```CSS
+**Example:**
+
+```css
 background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat;
 ```
 
-Again the values are applied in order! So first 5 images are `no-repeat` and the last image (picture-4) is `repeat`.
+In this example, each image repeats based on its specified value.
 
-https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat
+## Background Position
 
-`background-position` determines the position of the image. you can use unit values like 120px and 50%, or keyword values like: left, right, top, bottom, and center. **You can also mix these!** 
+The [`background-position`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position) property sets each image's position, using units like `120px` or `50%`, or keywords like `left`, `right`, `top`, `bottom`, and `center`.
 
-Here is an example, again the values are applied to the images in same order. Notice that each value is separqated by a comma. 
+**Position Values:**
 
-```CSS
+- `left`, `right`, `top`, `bottom`, `center` – aligns the image relative to the container’s edges.
+  - **Offset Values** – You can combine keywords with offsets to position images with more precision. For example, `background-position: left 30px top 50px` places the image 30px to the right of the left edge and 50px below the top edge.
+
+**Example:**
+
+```css
 background-position: left top, right 20px top 50px, right bottom, left bottom, center, center;
 ```
 
-Notice the first value: `left top`. This aligns the left edge of the image with the left of the container, and the top edge with the top of the container. You can use `left`, `top`, `right`, or `bottom`. 
+Each position value aligns with the respective image, allowing precise placement within the container.
 
-You can combine keywords with unit values to create an offset. Notice the second value: `right 20px top 50px`. Here the image would be placed 20px to the right of the right edge, and 50px down from the top. 
+## Background Attachment
 
-https://developer.mozilla.org/en-US/docs/Web/CSS/background-position
+[`background-attachment`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment) defines whether the background image is fixed to the viewport or scrolls with the content.
 
-`background-attachment` is used to determine if the image is fixed to the viewport or scrolls with the containing block. 
+- `fixed` – fixes the background image in place; it won’t scroll with the content.
+- `scroll` – scrolls the background image along with the content.
+- `local` – scrolls the background image within the element it’s applied to, behaving as if it’s “pinned” within that element.
 
-Values can be:
-- fixed
-- scroll
-- local 
+**Example:**
 
-The values apply to the images in same order, and are comma separated, for example: 
-
-```CSS
+```css
 background-attachment: scroll, scroll, scroll, scroll, scroll, fixed;
 ```
 
-In this case the first 5 images are `scroll` and image 6 (picture-4) is fixed. 
+Here, the final image remains fixed while others scroll with the content.
 
-https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment
+## CSS Gradients
 
+CSS gradients are background images created with color transitions. Types include:
 
+- **[Linear gradient](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient)** – transitions colors in a straight line.
+  ```css
+  background-image: linear-gradient(red, blue);
+  ```
+- **[Radial gradient](https://developer.mozilla.org/en-US/docs/Web/CSS/radial-gradient)** – transitions colors outward from a central point.
+  ```css
+  background-image: radial-gradient(circle, red, blue);
+  ```
+
+Gradients can blend with images and use properties like `background-size` and `background-position` for added control.
+
+### Using Spread Percentages in Gradients
+
+You can control color distribution in gradients using spread percentages, specifying how much space each color occupies.
+
+**Example of Linear Gradient with Spread Percentages:**
+
+```css
+background-image: linear-gradient(to right, red 20%, yellow 40%, green 60%, blue 100%);
+```
+
+In this example:
+- Red occupies the first 20% of the gradient.
+- Yellow appears from 20% to 40%.
+- Green fills from 40% to 60%.
+- Blue covers the rest up to 100%.
+
+**Example of Radial Gradient with Spread Percentages:**
+
+```css
+background-image: radial-gradient(circle, red 20%, yellow 40%, green 60%, blue 100%);
+```
+
+In this radial gradient, colors spread outward in the same pattern as the linear gradient but radiate from the center, creating a layered circular effect.
+
+## CSS Color Values
+
+CSS offers several ways to define color values:
+
+- **[Hexadecimal](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Hex_colors)** – `#FF5733`
+- **[RGB/RGBA](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#RGB_colors)** – `rgb(255, 87, 51)` or `rgba(255, 87, 51, 0.5)` (with opacity)
+- **[HSL/HSLA](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#HSL_colors)** – `hsl(10, 100%, 50%)` or `hsla(10, 100%, 50%, 0.5)`
+
+These formats provide flexibility, with RGBA and HSLA allowing transparency.
